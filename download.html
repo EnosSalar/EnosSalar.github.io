@@ -80,7 +80,22 @@
         .download-button:hover {
             background-color: #246d6d;
         }
+
+        /* Media query for smaller screens */
+        @media (max-width: 480px) {
+            .brand {
+                font-size: 20px;
+            }
+            .info-text {
+                font-size: 14px;
+            }
+            .download-button {
+                font-size: 14px;
+                padding: 10px 16px;
+            }
+        }
     </style>
+
     <script>
         window.onload = function() {
             var userAgent = navigator.userAgent.toLowerCase();
@@ -94,7 +109,7 @@
                 // Redirect iOS users
                 window.location.href = "https://apps.apple.com/iq/app/recheck-app/id6455685408";
             }
-            // Otherwise, do nothing (show the page + fallback button)
+            // Otherwise, do nothing and show this page for fallback
         };
     </script>
 </head>
