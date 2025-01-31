@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <title>Sheekar - Download</title>
-    <!-- Ensure proper mobile rendering and touch zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Example Google Font (optional) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-            rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -27,7 +23,6 @@
             justify-content: center;
             height: 100vh;
             color: #333;
-            /* Slightly larger base font */
             font-size: 18px;
         }
 
@@ -80,16 +75,17 @@
             font-size: 18px;
             font-weight: 600;
             transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
 
         .download-button:hover {
             background-color: #246d6d;
         }
 
-        /* Increase sizes on very small screens (for an even more comfortable tap target) */
         @media (max-width: 480px) {
             body {
-                font-size: 16px; /* Alternatively, keep 18px if you prefer larger text overall */
+                font-size: 16px;
             }
 
             .container {
@@ -115,21 +111,21 @@
             }
         }
     </style>
+
     <script>
-        window.onload = function() {
+        function redirectToAppStore() {
             var userAgent = navigator.userAgent.toLowerCase();
             var isAndroid = userAgent.indexOf("android") > -1;
             var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
             if (isAndroid) {
-                // Redirect Android users
                 window.location.href = "https://play.google.com/store/apps/details?id=com.enos.recheck.android";
             } else if (isiOS) {
-                // Redirect iOS users
                 window.location.href = "https://apps.apple.com/iq/app/recheck-app/id6455685408";
             }
-            // Otherwise, stay on this page and show fallback button
-        };
+        }
+
+        window.onload = redirectToAppStore;
     </script>
 </head>
 <body>
@@ -140,10 +136,10 @@
     <div class="info-text">
         Redirecting you to the right app store...
     </div>
-    <!-- Fallback Download Button (for other devices/browsers) -->
-    <a class="download-button" href="https://www.yourwebsite.com/download">
-        Download for Other Devices
-    </a>
+    <!-- Updated Download Button with onclick event -->
+    <button class="download-button" onclick="redirectToAppStore()">
+        Download Now
+    </button>
 </div>
 
 </body>
